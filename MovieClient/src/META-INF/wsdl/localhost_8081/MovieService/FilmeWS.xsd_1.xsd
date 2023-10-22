@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (https://github.com/eclipse-ee4j/metro-jax-ws). RI's version is Eclipse Metro/2.4.8 (RELEASE-2.4.8-e044505; 2022-01-04T13:29:23+0000) JAXWS-RI/2.3.5 JAXWS-API/2.3.3 JAXB-RI/2.3.5 JAXB-API/2.3.3 git-revision#e044505. --><xs:schema xmlns:tns="http://ws.pratica.pds.sc.ifrn.edu.br/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.pratica.pds.sc.ifrn.edu.br/">
+
+<xs:element name="createMovie" type="tns:createMovie"/>
+
+<xs:element name="createMovieResponse" type="tns:createMovieResponse"/>
+
+<xs:element name="destroyMovie" type="tns:destroyMovie"/>
+
+<xs:element name="destroyMovieResponse" type="tns:destroyMovieResponse"/>
+
+<xs:element name="listMovies" type="tns:listMovies"/>
+
+<xs:element name="listMoviesResponse" type="tns:listMoviesResponse"/>
+
+<xs:element name="retrieveMovie" type="tns:retrieveMovie"/>
+
+<xs:element name="retrieveMovieResponse" type="tns:retrieveMovieResponse"/>
+
+<xs:element name="updateMovie" type="tns:updateMovie"/>
+
+<xs:element name="updateMovieResponse" type="tns:updateMovieResponse"/>
+
+<xs:complexType name="updateMovie">
+<xs:sequence>
+<xs:element name="filme" type="tns:filme" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="filme">
+<xs:sequence>
+<xs:element name="ano" type="xs:int"/>
+<xs:element name="avaliacao" type="xs:double"/>
+<xs:element name="duracao" type="xs:int"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateMovieResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createMovie">
+<xs:sequence>
+<xs:element name="filme" type="tns:filme" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createMovieResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="destroyMovie">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="destroyMovieResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="retrieveMovie">
+<xs:sequence>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="retrieveMovieResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:filme" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="listMovies">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="listMoviesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:filme" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
